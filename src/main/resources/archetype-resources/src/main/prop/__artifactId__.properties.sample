@@ -1,0 +1,17 @@
+# projet prop file
+
+#jdbc
+jdbc.driverClassName=com.mysql.jdbc.Driver
+#jdbc.url = jdbc:mysql://127.0.0.1/shh?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull
+jdbc.url = jdbc:mysql://192.168.100.10/shh?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull
+jdbc.username = shh
+jdbc.password = 1
+jdbc.miniPoolSize = 1
+jdbc.maxPoolSize = 5
+
+#jmx
+jmx.enable = true
+jmx.host = auto
+jmx.port = 8999
+jmx.user = root
+jmx.password=1

@@ -1,0 +1,26 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util 
+		http://www.springframework.org/schema/util/spring-util-3.2.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- 该文件是在web.xml中配置 使用该文件-->
+	<util:properties id="main" location="classpath:${artifactId}.properties" />
+	<context:property-placeholder location="classpath:${artifactId}.properties" ignore-unresolvable="true"/>
+	<context:property-placeholder location="classpath:dataAccess.properties" ignore-unresolvable="true"/>
+	
+	<context:component-scan base-package="${package}" />
+	
+	<import resource="classpath:beanForMVC.xml"/>
+	
+	<import resource="classpath:beanForDao.xml"/>
+	<import resource="classpath:beanForService.xml"/>
+</beans>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM
+    "classpath://org/hibernate/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://192.168.100.10:3306/shh</property>
+	    <property name="hibernate.default_catalog">shh</property>
+        <property name="hibernate.connection.username">shh</property>
+        <property name="hibernate.connection.password">1</property>
+        <property name="myeclipse.connection.profile">localhost</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
+    </session-factory>
+</hibernate-configuration>

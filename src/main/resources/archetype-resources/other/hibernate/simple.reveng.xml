@@ -1,0 +1,796 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC 
+	"-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" 
+	"http://www.hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<!-- 访问日志 -->
+	<table name="t_access_log">
+		<foreign-key constraint-name="t_access_log_ibfk_1">
+			<!-- t_admin表 -->
+		   <many-to-one property="admin"/>
+		</foreign-key>
+ 	</table>
+ 	
+	<!-- 机构管理员 -->
+	<table name="t_admin">
+		<foreign-key constraint-name="t_admin_ibfk_2">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_admin_ibfk_3">
+			<!-- t_org表 -->
+		   <many-to-one property="org"/>
+		</foreign-key>
+ 	</table>
+
+	<!-- 专业机构 -->
+	<table name="t_ins">
+		<foreign-key constraint-name="t_ins_ibfk_1">
+			<!-- t_org表 -->
+		   <many-to-one property="org"/>
+		</foreign-key>
+ 	</table>
+
+	<!-- 抵押权人 -->
+	<table name="t_mtge">
+		<foreign-key constraint-name="t_mtge_ibfk_1">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+ 	</table>
+ 	
+	<!-- 附件 -->
+	<table name="t_attach">
+		<foreign-key constraint-name="t_attach_ibfk_1">
+			<!-- t_attach_set_agent表 -->
+		   <many-to-one property="attachSetAgent"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_attach_ibfk_2">
+			<!-- t_attach_set_biz表 -->
+		   <many-to-one property="attachSetBiz"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_attach_ibfk_3">
+			<!-- t_attach_set_cert表 -->
+		   <many-to-one property="attachSetCert"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_attach_ibfk_4">
+			<!-- t_attach_set_owner表 -->
+		   <many-to-one property="attachSetOwner"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_attach_ibfk_5">
+			<!-- t_attach_set_report表 -->
+		   <many-to-one property="attachSetReport"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_attach_ibfk_6">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_attach_ibfk_7">
+			<!-- t_attach_set_ins表 -->
+		   <many-to-one property="attachSetIns"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_attach_ibfk_8">
+			<!-- t_attach_set_mtge表 -->
+		   <many-to-one property="attachSetMtge"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_attach_ibfk_9">
+			<!-- t_attach_set_owner_cor表 -->
+		   <many-to-one property="attachSetOwnerCor"/>
+		</foreign-key>
+ 	</table>
+ 	
+	<!-- 附件组-经办人 -->
+	<table name="t_attach_set_agent">
+		<foreign-key constraint-name="t_attach_set_agent_ibfk_1">
+			<!-- t_agent表 -->
+		   <many-to-one property="agent"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_attach_set_agent_ibfk_2">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+ 	</table>
+
+	<!-- 附件组-抵押权人 -->
+	<table name="t_attach_set_mtge">
+		<foreign-key constraint-name="t_attach_set_mtge_ibfk_1">
+			<!-- t_mtge表 -->
+		   <many-to-one property="mtge"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_attach_set_mtge_ibfk_2">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_attach_set_mtge_ibfk_3">
+			<!-- t_biz表 -->
+		   <many-to-one property="biz"/>
+		</foreign-key>
+ 	</table>
+ 	
+	<!-- 附件组-业务 -->
+	<table name="t_attach_set_biz">
+		<foreign-key constraint-name="t_attach_set_biz_ibfk_1">
+			<!-- t_biz表 -->
+		   <many-to-one property="biz"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_attach_set_biz_ibfk_2">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+ 	</table>
+
+	<!-- 附件组-权证 -->
+	<table name="t_attach_set_cert">
+		<foreign-key constraint-name="t_attach_set_cert_ibfk_1">
+			<!-- t_cert表 -->
+		   <many-to-one property="cert"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_attach_set_cert_ibfk_2">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_attach_set_cert_ibfk_3">
+			<!-- t_biz表 -->
+		   <many-to-one property="biz"/>
+		</foreign-key>
+ 	</table>
+
+	<!-- 附件组-权属人 -->
+	<table name="t_attach_set_owner">
+		<foreign-key constraint-name="t_attach_set_owner_ibfk_1">
+			<!-- t_owner表 -->
+		   <many-to-one property="owner"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_attach_set_owner_ibfk_2">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_attach_set_owner_ibfk_3">
+			<!-- t_biz表 -->
+		   <many-to-one property="biz"/>
+		</foreign-key>
+ 	</table>
+
+	<!-- 附件组-宗地 -->
+	<table name="t_attach_set_parcel">
+		<foreign-key constraint-name="t_attach_set_parcel_ibfk_1">
+			<!-- t_parcel表 -->
+		   <many-to-one property="parcel"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_attach_set_parcel_ibfk_2">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_attach_set_parcel_ibfk_3">
+			<!-- t_biz表 -->
+		   <many-to-one property="biz"/>
+		</foreign-key>
+ 	</table>
+
+	<!-- 附件组-报告 -->
+	<table name="t_attach_set_report">
+		<foreign-key constraint-name="t_attach_set_report_ibfk_1">
+			<!-- t_task表 -->
+		   <many-to-one property="task"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_attach_set_report_ibfk_2">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_attach_set_report_ibfk_3">
+			<!-- t_biz表 -->
+		   <many-to-one property="biz"/>
+		</foreign-key>
+ 	</table>
+
+	<!-- 审核历史-企业注册 -->
+	<table name="t_audit_his_insreg">
+		<foreign-key constraint-name="t_audit_his_insreg_ibfk_1">
+			<!-- t_ins表 -->
+		   <many-to-one property="ins"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_audit_his_insreg_ibfk_2">
+			<!-- t_soc表 -->
+		   <many-to-one property="soc"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_audit_his_insreg_ibfk_3">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+ 	</table>
+
+	<!-- 审核历史-其他 -->
+	<table name="t_audit_his_other">
+		<foreign-key constraint-name="t_audit_his_other_ibfk_1">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_audit_his_other_ibfk_2">
+			<!-- t_soc表 -->
+		   <many-to-one property="soc"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_audit_his_other_ibfk_3">
+			<!-- t_order表 -->
+		   <many-to-one property="order"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_audit_his_other_ibfk_4">
+			<!-- t_ins表 -->
+		   <many-to-one property="ins"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_audit_his_other_ibfk_5">
+			<!-- t_biz表 -->
+		   <many-to-one property="biz"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_audit_his_other_ibfk_6">
+			<!-- t_org表 -->
+		   <many-to-one property="gov"/>
+		</foreign-key>
+ 	</table>
+ 	
+	<!-- 审核历史-报告 -->
+	<table name="t_audit_his_report">
+		<foreign-key constraint-name="t_audit_his_report_ibfk_1">
+			<!-- t_soc表 -->
+		   <many-to-one property="soc"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_audit_his_report_ibfk_2">
+			<!-- t_order表 -->
+		   <many-to-one property="order"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_audit_his_report_ibfk_3">
+			<!-- t_ins表 -->
+		   <many-to-one property="ins"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_audit_his_report_ibfk_4">
+			<!-- t_biz表 -->
+		   <many-to-one property="biz"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_audit_his_report_ibfk_6">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_audit_his_report_ibfk_7">
+			<!-- t_org表 -->
+		   <many-to-one property="gov"/>
+		</foreign-key>
+ 	</table>
+
+	<!-- 业务表 -->
+	<table name="t_biz">
+		<foreign-key constraint-name="t_biz_ibfk_1">
+			<!-- t_agent表 -->
+		   <many-to-one property="agent"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_biz_ibfk_2">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_biz_ibfk_3">
+			<!-- t_admin表 -->
+		   <many-to-one property="archiver"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_biz_ibfk_4">
+			<!-- t_admin表 -->
+		   <many-to-one property="createByUser"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_biz_ibfk_5">
+			<!-- t_admin表 -->
+		   <many-to-one property="operator"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_biz_ibfk_6">
+			<!-- t_cert表 -->
+		   <many-to-one property="cert"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_biz_ibfk_7">
+			<!-- t_owner表 -->
+		   <many-to-one property="owner"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_biz_ibfk_8">
+			<!-- t_org表 -->
+		   <many-to-one property="org"/>
+		</foreign-key>
+ 	</table>
+
+	<!-- 发卡历史 -->
+	<table name="t_card_his">
+		<foreign-key constraint-name="t_card_his_ibfk_1">
+			<!-- t_owner表 -->
+		   <many-to-one property="owner"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_card_his_ibfk_2">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+ 	</table>
+
+	<!-- 权证表 -->
+	<table name="t_cert">
+		<foreign-key constraint-name="t_cert_ibfk_1">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_cert_ibfk_2">
+			<!-- t_org表 -->
+		   <many-to-one property="org"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_cert_ibfk_4">
+			<!-- t_admin表 -->
+		   <many-to-one property="cancelUser"/>
+		</foreign-key>
+ 	</table>
+
+	<!-- 权证变更信息表 -->
+	<table name="t_cert_changeinfo">
+		<foreign-key constraint-name="t_cert_changeinfo_ibfk_1">
+			<!-- t_cert表 -->
+		   <many-to-one property="cert"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_cert_changeinfo_ibfk_2">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+ 	</table>
+
+	<!-- 卡编号设置表 -->
+	<table name="t_codeset">
+		<foreign-key constraint-name="t_codeset_ibfk_1">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_codeset_ibfk_2">
+			<!-- t_org表 -->
+		   <many-to-one property="org"/>
+		</foreign-key>
+ 	</table>
+
+	<!-- 数据字典 -->
+	<table name="t_dict">
+		<foreign-key constraint-name="t_dict_ibfk_1">
+			<!-- t_dict表 -->
+		   <many-to-one property="parent"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_dict_ibfk_2">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+ 	</table>
+ 	
+ 	<!-- 消息任务表 -->
+	<table name="t_msg_task">
+		<foreign-key constraint-name="t_msg_task_ibfk_1">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+ 	</table>
+
+ 	<!-- 洽谈记录表 -->
+	<table name="t_nego_his">
+		<foreign-key constraint-name="t_nego_his_ibfk_1">
+			<!-- t_order表 -->
+		   <many-to-one property="order"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_nego_his_ibfk_2">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+ 	</table>
+
+ 	<!-- 操作日志 -->
+	<table name="t_operate_log">
+		<foreign-key constraint-name="t_operate_log_ibfk_1">
+			<!-- t_admin表 -->
+		   <many-to-one property="operateUser"/>
+		</foreign-key>
+ 	</table>
+
+ 	<!-- 业务订单表 -->
+	<table name="t_order">
+		<foreign-key constraint-name="t_order_ibfk_1">
+			<!-- t_biz表 -->
+		   <many-to-one property="biz"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_order_ibfk_2">
+			<!-- t_ins表 -->
+		   <many-to-one property="ins"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_order_ibfk_3">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+ 	</table>
+
+ 	<!-- 组织结构 -->
+	<table name="t_org">
+		<foreign-key constraint-name="t_org_ibfk_1">
+			<!-- t_org表 -->
+		   <many-to-one property="parent"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_org_ibfk_2">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+ 	</table>
+
+ 	<!-- 权属人表 -->
+	<table name="t_owner">
+		<foreign-key constraint-name="t_owner_ibfk_1">
+			<!-- t_card_his表 -->
+		   <many-to-one property="card"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_owner_ibfk_2">
+			<!-- t_admin表 -->
+		   <many-to-one property="user"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_owner_ibfk_3">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+ 	</table>
+
+ 	<!-- 权属人权证关联表 -->
+	<table name="t_owner_cert">
+		<foreign-key constraint-name="t_owner_cert_ibfk_2">
+			<!-- t_cert表 -->
+		   <many-to-one property="cert"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_owner_cert_ibfk_1">
+			<!-- t_owner表 -->
+		   <many-to-one property="owner"/>
+		</foreign-key>
+ 	</table>
+
+ 	<!-- 宗地表 -->
+	<table name="t_parcel">
+		<foreign-key constraint-name="t_parcel_ibfk_1">
+			<!-- t_cert表 -->
+		   <many-to-one property="cert"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_parcel_ibfk_2">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+ 	</table>
+
+ 	<!-- 宗地承包信息表 -->
+	<table name="t_parcel_contract">
+		<foreign-key constraint-name="t_parcel_contract_ibfk_1">
+			<!-- t_parcel表 -->
+		   <many-to-one property="parcel"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_parcel_contract_ibfk_2">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+ 	</table>
+
+ 	<!-- 打印模板表 -->
+	<table name="t_print_temp">
+		<foreign-key constraint-name="t_print_temp_ibfk_1">
+			<!-- t_ins表 -->
+		   <many-to-one property="ins"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_print_temp_ibfk_2">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+ 	</table>
+
+ 	<!-- 角色表 -->
+	<table name="t_role">
+		<foreign-key constraint-name="t_role_ibfk_1">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_role_ibfk_2">
+			<!-- org_id表 -->
+		   <many-to-one property="org"/>
+		</foreign-key>
+ 	</table>
+
+ 	<!-- 任务（外业）表 -->
+	<table name="t_task">
+		<foreign-key constraint-name="t_task_ibfk_1">
+			<!-- t_cert表 -->
+		   <many-to-one property="cert"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_task_ibfk_2">
+			<!-- t_order表 -->
+		   <many-to-one property="order"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_task_ibfk_3">
+			<!-- t_parcel表 -->
+		   <many-to-one property="parcel"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_task_ibfk_4">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+ 	</table>
+
+ 	<!-- 任务历史表 -->
+	<table name="t_task_his">
+		<foreign-key constraint-name="t_task_his_ibfk_1">
+			<!-- t_task表 -->
+		   <many-to-one property="task"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_task_his_ibfk_2">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+ 	</table>
+
+ 	<!-- 用户组 -->
+	<table name="t_admin_role">
+		<foreign-key constraint-name="t_admin_role_ibfk_1">
+			<!-- t_admin表 -->
+		   <many-to-one property="admin"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_admin_role_ibfk_2">
+			<!-- t_roles表 -->
+		   <many-to-one property="role"/>
+		</foreign-key>
+ 	</table>
+
+ 	<!-- 待办-行政中心 -->
+	<table name="t_waitdo_gov">
+		<foreign-key constraint-name="t_waitdo_createby">
+			<!-- t_admin 表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_waitdo_gov_ibfk_1">
+			<!-- t_admin表 -->
+		   <many-to-one property="applyUser"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_waitdo_gov_ibfk_2">
+			<!-- t_biz表 -->
+		   <many-to-one property="biz"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_waitdo_gov_ibfk_3">
+			<!-- t_org表 -->
+		   <many-to-one property="org"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_waitdo_gov_ibfk_4">
+			<!-- t_soc表 -->
+		   <many-to-one property="soc"/>
+		</foreign-key>
+ 	</table>
+
+ 	<!-- 待办-机构 -->
+	<table name="t_waitdo_ins">
+		<foreign-key constraint-name="t_waitdo_ins_ibfk_1">
+			<!-- t_biz表 -->
+		   <many-to-one property="biz"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_waitdo_ins_ibfk_2">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_waitdo_ins_ibfk_3">
+			<!-- t_ins表 -->
+		   <many-to-one property="ins"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_waitdo_ins_ibfk_4">
+			<!-- t_order表 -->
+		   <many-to-one property="order"/>
+		</foreign-key>
+ 	</table>
+
+ 	<!-- 待办-协会 -->
+	<table name="t_waitdo_soc">
+		<foreign-key constraint-name="t_waitdo_soc_ibfk_1">
+			<!-- t_soc表 -->
+		   <many-to-one property="soc"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_waitdo_soc_ibfk_2">
+			<!-- t_task表 -->
+		   <many-to-one property="task"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_waitdo_soc_ibfk_3">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_waitdo_soc_ibfk_4">
+			<!-- t_ins表 -->
+		   <many-to-one property="ins"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_waitdo_soc_ibfk_5">
+			<!-- t_order表 -->
+		   <many-to-one property="order"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_waitdo_soc_ibfk_6">
+			<!-- t_biz表 -->
+		   <many-to-one property="biz"/>
+		</foreign-key>
+ 	</table>
+ 	
+	<table name="t_owner_cert">
+		<foreign-key constraint-name="t_owner_cert_ibfk_1">
+			<!-- t_owner表 -->
+		   <many-to-one property="owner"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_owner_cert_ibfk_2">
+			<!-- t_cert表 -->
+		   <many-to-one property="cert"/>
+		</foreign-key>
+ 	</table>
+
+	<!-- 待办-协会 -->
+	<table name="t_soc">
+		<foreign-key constraint-name="t_soc_ibfk_1">
+			<!-- t_org表 -->
+		   <many-to-one property="org"/>
+		</foreign-key>
+ 	</table>
+	<!-- 角色-功能 -->
+	<table name="t_role_permission">
+		<foreign-key constraint-name="t_role_permission_ibfk_1">
+			<!-- t_role表 -->
+		   <many-to-one property="role"/>
+		</foreign-key>
+ 	</table>
+	<!-- 经办人 -->
+	<table name="t_agent">
+		<foreign-key constraint-name="t_agent_ibfk_1">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_agent_ibfk_2">
+			<!-- t_admin表 -->
+		   <many-to-one property="user"/>
+		</foreign-key>
+ 	</table>
+	<!-- 业务-证书 -->
+	<table name="t_biz_cert">
+		<foreign-key constraint-name="t_biz_cert_ibfk_1">
+			<!-- t_cert表 -->
+		   <many-to-one property="cert"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_biz_cert_ibfk_2">
+			<!-- t_biz表 -->
+		   <many-to-one property="biz"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_biz_cert_ibfk_3">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+ 	</table>
+ 	<!-- 用户-角色 -->
+	<table name="t_user_role">
+		<foreign-key constraint-name="t_user_role_ibfk_1">
+			<!-- t_admin表 -->
+		   <many-to-one property="user"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_user_role_ibfk_2">
+			<!-- t_roles表 -->
+		   <many-to-one property="role"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_user_role_ibfk_3">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+ 	</table>
+ 	<!-- 员工 -->
+	<table name="t_employee">
+		<foreign-key constraint-name="t_employee_ibfk_1">
+			<!-- t_admin表 -->
+		   <many-to-one property="user"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_employee_ibfk_2">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_employee_ibfk_3">
+			<!-- t_org表 -->
+		   <many-to-one property="org"/>
+		</foreign-key>
+ 	</table>
+ 	<!-- 抵押登记业务表 -->
+	<table name="t_biz_mtg">
+		<foreign-key constraint-name="t_biz_mtg_ibfk_2">
+			<!-- t_mtge表 -->
+		   <many-to-one property="mtge"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_biz_mtg_ibfk_1">
+			<!-- t_biz表 -->
+		   <many-to-one property="biz"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_biz_mtg_ibfk_3">
+			<!-- t_biz_mtg表 -->
+		   <many-to-one property="bizMtgReg"/>
+		</foreign-key>
+ 	</table>
+ 	<!-- 抵押登记业务-外业机构关系表 -->
+	<table name="t_biz_mtg_ins">
+		<foreign-key constraint-name="t_biz_mtg_ins_ibfk_2">
+			<!-- t_ins表 -->
+		   <many-to-one property="ins"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_biz_mtg_ins_ibfk_1">
+			<!-- t_biz_mtg表 -->
+		   <many-to-one property="bizMtg"/>
+		</foreign-key>
+ 	</table>
+ 	<!-- 内容变更业务表 -->
+	<table name="t_biz_info_change">
+		<foreign-key constraint-name="t_biz_info_change_ibfk_1">
+			<!-- t_biz表 -->
+		   <many-to-one property="biz"/>
+		</foreign-key>
+ 	</table>
+ 	<!-- 权证变更过记录 -->
+	<table name="t_cert_change_record">
+		<foreign-key constraint-name="t_cert_change_record_ibfk_1">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_cert_change_record_ibfk_2">
+			<!-- t_cert表 -->
+		   <many-to-one property="cert"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_cert_change_record_ibfk_3">
+			<!-- t_biz表 -->
+		   <many-to-one property="biz"/>
+		</foreign-key>
+ 	</table>
+ 	<!-- 待办-林农 -->
+	<table name="t_waitdo_owner">
+		<foreign-key constraint-name="t_waitdo_owner_ibfk_1">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_waitdo_owner_ibfk_2">
+			<!-- t_biz表 -->
+		   <many-to-one property="biz"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_waitdo_owner_ibfk_3">
+			<!-- t_admin表 -->
+		   <many-to-one property="owner"/>
+		</foreign-key>
+ 	</table>
+ 	<!-- 编号作废 -->
+	<table name="t_abolish_sn">
+		<foreign-key constraint-name="t_abolish_sn_ibfk_1">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_abolish_sn_ibfk_2">
+			<!-- t_org表 -->
+		   <many-to-one property="org"/>
+		</foreign-key>
+ 	</table>
+ 	<!-- 附件组-权属人-更正附件组 -->
+	<table name="t_attach_set_owner_cor">
+		<foreign-key constraint-name="t_attach_set_owner_cor_ibfk_1">
+			<!-- t_owner表 -->
+		   <many-to-one property="owner"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_attach_set_owner_cor_ibfk_2">
+			<!-- t_admin表 -->
+		   <many-to-one property="createBy"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_attach_set_owner_cor_ibfk_3">
+			<!-- t_biz表 -->
+		   <many-to-one property="biz"/>
+		</foreign-key>
+ 	</table>
+ 	<!-- 业务合同表 -->
+	<table name="t_biz_contract">
+		<foreign-key constraint-name="t_biz_contract_ibfk_1">
+			<!-- t_biz表 -->
+		   <many-to-one property="biz"/>
+		</foreign-key>
+ 	</table>
+ 	<!-- 业务异常标记信息表 -->
+	<table name="t_biz_exception_tag">
+		<foreign-key constraint-name="t_biz_exception_tag_ibfk_1">
+			<!-- t_biz表 -->
+		   <many-to-one property="biz"/>
+		</foreign-key>
+		<foreign-key constraint-name="t_biz_exception_tag_ibfk_2">
+			<!-- t_ins表 -->
+		   <many-to-one property="ins"/>
+		</foreign-key>
+ 	</table>
+ 	
+</hibernate-reverse-engineering>
