@@ -1108,4 +1108,4 @@ MathJax.Hub.Config({
 });
 </script>
 <title>index</title></head><body><article class="markdown-body"><h1 id="web"><a name="user-content-web" href="#web" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>这是个web项目的样本</h1>
-<p>云南林资科技有限公司</p></article></body></html>
+<p><a href="http://www.ynitq.com">云南IT圈</a></p></article></body></html>

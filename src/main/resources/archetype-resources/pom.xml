@@ -6,7 +6,7 @@
     <packaging>war</packaging>
     <version>${version}</version>
     <name>${artifactId}</name>
-    <url>http://maven.lin-zi.com</url>
+    <url>http://www.ynitq.com</url>
 
     <properties>
         <spring.version>4.2.2.RELEASE</spring.version>
@@ -97,11 +97,6 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.7</version>
-        </dependency>
-        <dependency>
-            <groupId>com.senatry.commons</groupId>
-            <artifactId>JmxInWeb</artifactId>
-            <version>0.1.0</version>
         </dependency>
 
         <!-- hibernate 我们用3.x的版本 -->
